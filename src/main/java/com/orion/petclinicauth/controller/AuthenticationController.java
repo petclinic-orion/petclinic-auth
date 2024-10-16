@@ -3,6 +3,7 @@ package com.orion.petclinicauth.controller;
 import com.orion.petclinicauth.model.LoginRequest;
 import com.orion.petclinicauth.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,5 +26,11 @@ public class AuthenticationController {
         final String jwt = jwtUtil.generateToken(authenticationRequest.getUsername() + authenticationRequest.getPassword());
 
         return jwt;
+    }
+
+    @GetMapping("/test")
+    public String testMethod() {
+        String message = "This is a test response";
+        return message;
     }
 }
